@@ -1,0 +1,11 @@
+## **Proposed changes**
+
+- Showing Recommended movies according to selected movie in DetailsScreen
+
+## **Checklist**
+
+- Now adapters are being reused as a single instance in different fragments
+- Added methods to handle Api request
+
+## Preview
+<img src="https://user-images.githubusercontent.com/71901890/232552389-50435e65-ac71-4e8b-b60f-a824d5d94588.mp4" width="280" height="580">
