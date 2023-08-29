@@ -18,8 +18,16 @@ public partial class LestrangeContext : DbContext
     public virtual DbSet<Carrito> Carritos { get; set; }
 
     public virtual DbSet<DetalleCarrito> DetalleCarritos { get; set; }
-    string localServerName = Environment.MachineName;
+   
     public virtual DbSet<Usuario> Usuarios { get; set; }
+
+    public virtual DbSet<Categoria> Categoria { get; set; }
+
+    public virtual DbSet<Comentario> Comentarios { get; set; }
+
+    public virtual DbSet<Zapato> Zapatos { get; set; }
+
+    string localServerName = Environment.MachineName;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -28,6 +36,48 @@ public partial class LestrangeContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.UseCollation("Latin1_General_CI_AS");
+
+        modelBuilder.Entity<Categoria>(entity =>
+        {
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Descripcion)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<Comentario>(entity =>
+        {
+            entity.ToTable("Comentario");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Fecha)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Texto)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<Zapato>(entity =>
+        {
+            entity.ToTable("Zapato");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Descripcion)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.ImagenUrl)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("ImagenURL");
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Precio).HasColumnType("decimal(18, 2)");
+        });
 
         modelBuilder.Entity<Carrito>(entity =>
         {
