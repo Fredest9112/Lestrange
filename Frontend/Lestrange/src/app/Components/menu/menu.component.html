@@ -24,6 +24,15 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Lestrange</span>
+      <span class="spacer"></span> <!-- This will push the avatar to the right -->
+      <div class="avatar-container">
+        <div class="avatar">
+          <ng-container *ngIf="userName; else noUser">
+            {{ initials }}
+          </ng-container>
+          <ng-template #noUser>No User</ng-template>
+        </div>
+      </div>
     </mat-toolbar>
     <!-- Add Content Here -->
   </mat-sidenav-content>

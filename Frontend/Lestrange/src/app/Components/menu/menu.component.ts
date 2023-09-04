@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -9,11 +9,18 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
-  private breakpointObserver = inject(BreakpointObserver);
+  constructor(private breakpointObserver: BreakpointObserver) { }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Web)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
+
+  userName: string = 'Mario Garzon'; // Replace with actual user data
+
+  get initials(): string {
+    return this.userName.split(' ').map(n => n[0]).join('').toUpperCase();
+  }
 }
+
