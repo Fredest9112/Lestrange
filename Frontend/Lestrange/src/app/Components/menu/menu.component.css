@@ -21,7 +21,6 @@
 }
 
 .example-header-image {
-  background-image: url('src/assets/mario.jpg');  /* Replace with your image URL */
   background-size: cover;
   height: 40px;
   width: 40px;
