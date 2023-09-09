@@ -15,3 +15,28 @@
   top: 0;
   z-index: 1;
 }
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.example-header-image {
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+}
+
+/* To vertically align the initials if you decide to use them */
+.avatar-container {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3c315c;  /* This will be the background color for the avatar */
+}
