@@ -59,6 +59,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "Lestrange:build",
+            "ssl": true
+          },
           "configurations": {
             "production": {
               "browserTarget": "Lestrange:build:production"
