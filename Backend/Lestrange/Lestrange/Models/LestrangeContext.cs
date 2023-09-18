@@ -27,6 +27,12 @@ public partial class LestrangeContext : DbContext
 
     public virtual DbSet<Zapato> Zapatos { get; set; }
 
+    public virtual DbSet<DetalleOrden> DetalleOrdens { get; set; }
+
+    public virtual DbSet<OrdenVenta> OrdenVenta { get; set; }
+
+    public virtual DbSet<Pago> Pagos { get; set; }
+
     string localServerName = Environment.MachineName;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -112,6 +118,37 @@ public partial class LestrangeContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.NombreUsuario)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<DetalleOrden>(entity =>
+        {
+            entity.ToTable("DetalleOrden");
+
+            entity.Property(e => e.Precio).HasColumnType("decimal(18, 2)");
+        });
+
+        modelBuilder.Entity<OrdenVenta>(entity =>
+        {
+            entity.Property(e => e.Estado)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Fecha)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Total).HasColumnType("decimal(18, 2)");
+        });
+
+        modelBuilder.Entity<Pago>(entity =>
+        {
+            entity.ToTable("Pago");
+
+            entity.Property(e => e.Fecha)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Monto).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.MétodoPago)
                 .HasMaxLength(50)
                 .IsUnicode(false);
         });
