@@ -11,11 +11,10 @@ export class CarritoComponent implements OnInit {
   constructor(public api: RestService){}
 
   ngOnInit(): void {
-    //this.getCarritos();
+    this.getCarrito();
   }
 
-  //public getCarritos(){
-  //  this.api.getCategoriasFromRemote();
-  //}
-
+  public getCarrito(){
+    this.api.getCarritoFromRemote();
+  }
 }

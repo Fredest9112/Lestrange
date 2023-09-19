@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ZapatoComponent } from './Components/zapato/zapato.component';
 import { CategoriasComponent } from './Components/categorias/categorias.component';
 import { ComentarioComponent } from './Components/comentario/comentario.component';
+import { DetallecarritoComponent } from './Components/detallecarrito/detallecarrito.component';
+import { UsuarioComponent } from './Components/usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ComentarioComponent } from './Components/comentario/comentario.componen
     CarritoComponent,
     ZapatoComponent,
     CategoriasComponent,
-    ComentarioComponent
+    ComentarioComponent,
+    DetallecarritoComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,
