@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Usuario } from '../Models/usuario.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -62,6 +63,33 @@ export class RestService {
     });
     } catch (error) {
       console.log("error on request: "+error.message);
+    }
+  }
+
+  public async crearUsuario(usuarioData: Usuario) {
+    try {
+      const response = await this.api.post("https://localhost:7200/api/Usuarios", usuarioData).toPromise();
+      console.log("Usuario creado:", response);
+    } catch (error) {
+      console.log("Error en la solicitud POST:", error);
+    }
+  }
+
+  public async actualizarUsuario(usuarioId: number, usuarioData: Usuario) {
+    try {
+      const response = await this.api.put(`https://localhost:7200/api/Usuarios/${usuarioId}`, usuarioData).toPromise();
+      console.log("Usuario actualizado:", response);
+    } catch (error) {
+      console.log("Error en la solicitud PUT:", error);
+    }
+  }
+
+  public async borrarUsuario(usuarioId: number) {
+    try {
+      const response = await this.api.delete(`https://localhost:7200/api/Usuarios/${usuarioId}`).toPromise();
+      console.log("Usuario eliminado:", response);
+    } catch (error) {
+      console.log("Error en la solicitud DELETE:", error);
     }
   }
 }
