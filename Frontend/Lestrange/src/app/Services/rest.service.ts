@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Usuario } from '../Models/usuario.interface';
+import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -56,14 +57,14 @@ export class RestService {
       console.log("error on request: "+error);
     }
   }
-  public async getUsuarioFromRemote(){
-    try {
-      await this.api.get("https://localhost:7200/api/Usuarios").toPromise().then((res)=>{
-      console.log(res);
-    });
-    } catch (error) {
-      console.log("error on request: "+error.message);
-    }
+  
+  getUsuarioFromRemote(): Observable<Usuario[]> {
+    return this.api.get<Usuario[]>("https://localhost:7200/api/Usuarios").pipe(
+      catchError((error: any) => {
+        console.error('An error occurred while fetching data:', error);
+        return throwError(error);
+      })
+    );
   }
 
   public async crearUsuario(usuarioData: Usuario) {

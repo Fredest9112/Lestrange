@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UsuariosComponent } from './Components/usuarios/usuarios.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from './Components/menu/menu.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -19,11 +17,11 @@ import { CategoriasComponent } from './Components/categorias/categorias.componen
 import { ComentarioComponent } from './Components/comentario/comentario.component';
 import { DetallecarritoComponent } from './Components/detallecarrito/detallecarrito.component';
 import { UsuarioComponent } from './Components/usuario/usuario.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsuariosComponent,
     MenuComponent,
     CarritoComponent,
     ZapatoComponent,
@@ -33,6 +31,7 @@ import { UsuarioComponent } from './Components/usuario/usuario.component';
     UsuarioComponent
   ],
   imports: [
+    MatTableModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
