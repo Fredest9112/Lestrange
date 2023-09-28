@@ -6,17 +6,18 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { Usuario } from 'src/app/Models/usuario.interface';
 import { RestService } from 'src/app/Services/rest.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-usuariodatatable',
   templateUrl: './usuariodatatable.component.html',
   styleUrls: ['./usuariodatatable.component.css'],
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule],
+  imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, CommonModule],
 })
 export class UsuarioDataTable implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'nombreUsuario', 'correo', 'contrasena','direccionEnvio','fechaRegistro'];
   dataSource: MatTableDataSource<Usuario> = new MatTableDataSource<Usuario>([]);
+  displayedColumns: string[] = []; // Initialize as an empty array
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -30,6 +31,14 @@ export class UsuarioDataTable implements AfterViewInit {
     // Fetch data and then assign it to the data source
     this.restService.getUsuarioFromRemote().subscribe((users: Usuario[]) => {
       this.dataSource.data = users;
+
+      // Populate displayedColumns based on the properties of the first user (assuming all users have the same properties)
+      if (users.length > 0) {
+        this.displayedColumns = Object.keys(users[0]);
+
+        // Bind the sort to the table dynamically
+        this.dataSource.sort = this.sort;
+      }
     });
   }
 
@@ -42,3 +51,4 @@ export class UsuarioDataTable implements AfterViewInit {
     }
   }
 }
+

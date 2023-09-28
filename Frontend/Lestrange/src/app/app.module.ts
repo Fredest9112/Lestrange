@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +18,7 @@ import { CategoriasComponent } from './Components/categorias/categorias.componen
 import { ComentarioComponent } from './Components/comentario/comentario.component';
 import { DetallecarritoComponent } from './Components/detallecarrito/detallecarrito.component';
 import { UsuarioComponent } from './Components/usuario/usuario.component';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {MatTableModule} from '@angular/material/table';
     UsuarioComponent
   ],
   imports: [
+    CommonModule,
     MatTableModule,
     BrowserModule,
     AppRoutingModule,
