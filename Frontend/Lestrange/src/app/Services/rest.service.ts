@@ -57,6 +57,35 @@ export class RestService {
       console.log("error on request: "+error);
     }
   }
+  public async getPagoFromRemote(){
+    try {
+      await this.api.get("https://localhost:7200/api/Pago").toPromise().then((res)=>{
+      console.log(res);
+    });
+    } catch (error) {
+      console.log("error on request: "+error);
+    }
+  }
+
+  public async getDetalleordenFromRemote(){
+    try {
+      await this.api.get("https://localhost:7200/api/Pago").toPromise().then((res)=>{
+      console.log(res);
+    });
+    } catch (error) {
+      console.log("error on request: "+error);
+    }
+  }
+
+  public async getOrdenventaFromRemote(){
+    try {
+      await this.api.get("https://localhost:7200/api/Pago").toPromise().then((res)=>{
+      console.log(res);
+    });
+    } catch (error) {
+      console.log("error on request: "+error);
+    }
+  }
   
   getUsuarioFromRemote(): Observable<Usuario[]> {
     return this.api.get<Usuario[]>("https://localhost:7200/api/Usuarios").pipe(

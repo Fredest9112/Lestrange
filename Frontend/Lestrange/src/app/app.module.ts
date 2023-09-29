@@ -18,6 +18,9 @@ import { ComentarioComponent } from './Components/comentario/comentario.componen
 import { DetallecarritoComponent } from './Components/detallecarrito/detallecarrito.component';
 import { UsuarioComponent } from './Components/usuario/usuario.component';
 import {MatTableModule} from '@angular/material/table';
+import { PagoComponent } from './Components/pago/pago.component';
+import { OrdenventaComponent } from './Components/ordenventa/ordenventa.component';
+import { DetalleordenComponent } from './Components/detalleorden/detalleorden.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import {MatTableModule} from '@angular/material/table';
     CategoriasComponent,
     ComentarioComponent,
     DetallecarritoComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    PagoComponent,
+    OrdenventaComponent,
+    DetalleordenComponent
   ],
   imports: [
     MatTableModule,

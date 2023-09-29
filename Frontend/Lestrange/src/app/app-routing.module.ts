@@ -6,6 +6,9 @@ import { CategoriasComponent } from './Components/categorias/categorias.componen
 import { ComentarioComponent } from './Components/comentario/comentario.component';
 import { UsuarioDataTable } from './Components/usuariodatatable/usuariodatatable.component';
 import { DetallecarritoComponent } from './Components/detallecarrito/detallecarrito.component';
+import { PagoComponent } from './Components/pago/pago.component';
+import { DetalleordenComponent } from './Components/detalleorden/detalleorden.component';
+import { OrdenventaComponent } from './Components/ordenventa/ordenventa.component';
 
 const routes: Routes = [
   {path:"Carrito", component:CarritoComponent},
@@ -13,7 +16,10 @@ const routes: Routes = [
   {path:"Categorias", component:CategoriasComponent},
   {path:"Comentarios", component:ComentarioComponent},
   {path:"Detallecarrito",component:DetallecarritoComponent},
-  {path:"Usuario", component:UsuarioDataTable}
+  {path:"Usuario", component:UsuarioDataTable},
+  {path:"Pago", component:PagoComponent},
+  {path:"Detalleorden", component:DetalleordenComponent},
+  {path:"Ordenventa", component:OrdenventaComponent},
 ];
 
 @NgModule({
