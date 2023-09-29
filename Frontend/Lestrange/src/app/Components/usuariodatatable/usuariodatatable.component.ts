@@ -4,6 +4,7 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { Usuario } from 'src/app/Models/usuario.interface';
 import { RestService } from 'src/app/Services/rest.service';
 import { CommonModule } from '@angular/common';
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './usuariodatatable.component.html',
   styleUrls: ['./usuariodatatable.component.css'],
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, CommonModule],
+  imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, CommonModule, MatIconModule],
 })
 export class UsuarioDataTable implements AfterViewInit {
   dataSource: MatTableDataSource<Usuario> = new MatTableDataSource<Usuario>([]);
@@ -36,6 +37,8 @@ export class UsuarioDataTable implements AfterViewInit {
       if (users.length > 0) {
         this.displayedColumns = Object.keys(users[0]);
 
+        this.displayedColumns.push('acciones');
+
         // Bind the sort to the table dynamically
         this.dataSource.sort = this.sort;
       }
@@ -49,6 +52,14 @@ export class UsuarioDataTable implements AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  editarUsuario(usuario: Usuario) {
+    console.log("editar usuario: "+usuario.nombreUsuario);
+  }
+  
+  borrarUsuario(usuario: Usuario) {
+    console.log("borrar usuario: "+usuario.nombreUsuario);
   }
 }
 
