@@ -18,6 +18,7 @@ import { CategoriasComponent } from './Components/categorias/categorias.componen
 import { ComentarioComponent } from './Components/comentario/comentario.component';
 import { DetallecarritoComponent } from './Components/detallecarrito/detallecarrito.component';
 import { MatTableModule } from '@angular/material/table';
+import { Zapatodatatable } from './Components/zapatodatatable/zapatodatatable.component';
 
 @NgModule({
   declarations: [
