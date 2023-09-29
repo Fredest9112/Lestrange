@@ -1,7 +1,7 @@
 export interface Comentario {
-    Id: number;
-    ZapatoId?: number | null;
-    UsuarioId?: number | null;
-    Texto?: string | null;
-    Fecha?: string | null;
+    id: number;
+    zapatoId?: number | null;
+    usuarioId?: number | null;
+    texto?: string | null;
+    fecha?: string | null;
 }

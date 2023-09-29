@@ -55,10 +55,10 @@ export class Categoriadatatable implements AfterViewInit {
   }
 
   editarCategoria(categoria: Categoria) {
-    console.log("editar usuario: "+categoria.Nombre);
+    console.log("editar usuario: "+categoria.nombre);
   }
   
   borrarCategoria(categoria: Categoria) {
-    console.log("borrar usuario: "+categoria.Nombre);
+    console.log("borrar usuario: "+categoria.nombre);
   }
 }

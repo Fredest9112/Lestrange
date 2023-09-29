@@ -55,10 +55,10 @@ export class Comentariodatatable implements AfterViewInit {
   }
 
   editarComentario(comentario: Comentario) {
-    console.log("editar comentario: "+comentario.Texto);
+    console.log("editar comentario: "+comentario.texto);
   }
   
   borrarComentario(comentario: Comentario) {
-    console.log("borrar comentario: "+comentario.Texto);
+    console.log("borrar comentario: "+comentario.texto);
   }
 }

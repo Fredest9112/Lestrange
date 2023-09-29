@@ -55,10 +55,10 @@ export class Zapatodatatable implements AfterViewInit {
   }
 
   editarZapato(zapato: Zapato) {
-    console.log("editar usuario: "+zapato.Nombre);
+    console.log("editar zapato: "+zapato.descripcion);
   }
   
   borrarZapato(zapato: Zapato) {
-    console.log("borrar usuario: "+zapato.Nombre);
+    console.log("borrar zapato: "+zapato.descripcion);
   }
 }

@@ -1,9 +1,9 @@
 export interface Zapato {
-    Id: number;
-    Nombre?: string | null;
-    Descripcion?: string | null;
-    Precio?: number | null;
-    ImagenUrl?: string | null;
-    Stock?: number | null;
-    CategoriaId?: number | null;
+    id: number;
+    nombre?: string | null;
+    descripcion?: string | null;
+    precio?: number | null;
+    imagenUrl?: string | null;
+    stock?: number | null;
+    categoriaId?: number | null;
 }
