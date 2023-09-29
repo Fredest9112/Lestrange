@@ -13,7 +13,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { CarritoComponent } from './Components/carrito/carrito.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ComentarioComponent } from './Components/comentario/comentario.component';
 import { DetallecarritoComponent } from './Components/detallecarrito/detallecarrito.component';
 import { MatTableModule } from '@angular/material/table';
 
@@ -22,7 +21,6 @@ import { MatTableModule } from '@angular/material/table';
     AppComponent,
     MenuComponent,
     CarritoComponent,
-    ComentarioComponent,
     DetallecarritoComponent
   ],
   imports: [
