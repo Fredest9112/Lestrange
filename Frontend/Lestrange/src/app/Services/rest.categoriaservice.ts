@@ -11,7 +11,7 @@ export class CategoriaRestService {
   constructor(public api: HttpClient) { }
 
   getCategoriaFromRemote(): Observable<Categoria[]>{
-    return this.api.get<Categoria[]>("https://localhost:7200/api/Zapato").pipe(
+    return this.api.get<Categoria[]>("https://localhost:7200/api/Categorias").pipe(
       catchError((error: any) => {
         console.error('An error occurred while fetching data:', error);
         return throwError(error);

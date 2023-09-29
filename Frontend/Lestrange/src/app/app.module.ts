@@ -13,20 +13,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { CarritoComponent } from './Components/carrito/carrito.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ZapatoComponent } from './Components/zapato/zapato.component';
-import { CategoriasComponent } from './Components/categorias/categorias.component';
 import { ComentarioComponent } from './Components/comentario/comentario.component';
 import { DetallecarritoComponent } from './Components/detallecarrito/detallecarrito.component';
 import { MatTableModule } from '@angular/material/table';
-import { Zapatodatatable } from './Components/zapatodatatable/zapatodatatable.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     CarritoComponent,
-    ZapatoComponent,
-    CategoriasComponent,
     ComentarioComponent,
     DetallecarritoComponent
   ],
