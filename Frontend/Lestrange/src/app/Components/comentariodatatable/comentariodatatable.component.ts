@@ -5,37 +5,37 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { Usuario } from 'src/app/Models/usuario.interface';
-import { RestService } from 'src/app/Services/rest.service';
 import { CommonModule } from '@angular/common';
+import { Comentario } from 'src/app/Models/comentario.interface';
+import { ComentarioRestService } from 'src/app/Services/rest.comentarioservice';
 
 @Component({
-  selector: 'app-usuariodatatable',
-  templateUrl: './usuariodatatable.component.html',
-  styleUrls: ['./usuariodatatable.component.css'],
+  selector: 'app-comentariodatatable',
+  templateUrl: './comentariodatatable.component.html',
+  styleUrls: ['./comentariodatatable.component.css'],
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, CommonModule, MatIconModule],
+  imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, CommonModule, MatIconModule]
 })
-export class Usuariodatatable implements AfterViewInit {
-  dataSource: MatTableDataSource<Usuario> = new MatTableDataSource<Usuario>([]);
+export class Comentariodatatable implements AfterViewInit {
+  dataSource: MatTableDataSource<Comentario> = new MatTableDataSource<Comentario>([]);
   displayedColumns: string[] = []; // Initialize as an empty array
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public restService: RestService) {}
+  constructor(public restService: ComentarioRestService) {}
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
 
     // Fetch data and then assign it to the data source
-    this.restService.getUsuarioFromRemote().subscribe((users: Usuario[]) => {
-      this.dataSource.data = users;
+    this.restService.getComentarioFromRemote().subscribe((comentarios: Comentario[]) => {
+      this.dataSource.data = comentarios;
 
       // Populate displayedColumns based on the properties of the first user (assuming all users have the same properties)
-      if (users.length > 0) {
-        this.displayedColumns = Object.keys(users[0]);
+      if (comentarios.length > 0) {
+        this.displayedColumns = Object.keys(comentarios[0]);
 
         this.displayedColumns.push('acciones');
 
@@ -54,12 +54,11 @@ export class Usuariodatatable implements AfterViewInit {
     }
   }
 
-  editarUsuario(usuario: Usuario) {
-    console.log("editar usuario: "+usuario.nombreUsuario);
+  editarComentario(comentario: Comentario) {
+    console.log("editar comentario: "+comentario.texto);
   }
   
-  borrarUsuario(usuario: Usuario) {
-    console.log("borrar usuario: "+usuario.nombreUsuario);
+  borrarComentario(comentario: Comentario) {
+    console.log("borrar comentario: "+comentario.texto);
   }
 }
-

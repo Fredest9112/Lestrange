@@ -5,37 +5,37 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { Usuario } from 'src/app/Models/usuario.interface';
-import { RestService } from 'src/app/Services/rest.service';
 import { CommonModule } from '@angular/common';
+import { Categoria } from 'src/app/Models/categoria.interface';
+import { CategoriaRestService } from 'src/app/Services/rest.categoriaservice';
 
 @Component({
-  selector: 'app-usuariodatatable',
-  templateUrl: './usuariodatatable.component.html',
-  styleUrls: ['./usuariodatatable.component.css'],
+  selector: 'app-categoriadatatable',
+  templateUrl: './categoriadatatable.component.html',
+  styleUrls: ['./categoriadatatable.component.css'],
   standalone: true,
   imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, CommonModule, MatIconModule],
 })
-export class Usuariodatatable implements AfterViewInit {
-  dataSource: MatTableDataSource<Usuario> = new MatTableDataSource<Usuario>([]);
+export class Categoriadatatable implements AfterViewInit {
+  dataSource: MatTableDataSource<Categoria> = new MatTableDataSource<Categoria>([]);
   displayedColumns: string[] = []; // Initialize as an empty array
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public restService: RestService) {}
+  constructor(public restService: CategoriaRestService) {}
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
 
     // Fetch data and then assign it to the data source
-    this.restService.getUsuarioFromRemote().subscribe((users: Usuario[]) => {
-      this.dataSource.data = users;
+    this.restService.getCategoriaFromRemote().subscribe((categorias: Categoria[]) => {
+      this.dataSource.data = categorias;
 
       // Populate displayedColumns based on the properties of the first user (assuming all users have the same properties)
-      if (users.length > 0) {
-        this.displayedColumns = Object.keys(users[0]);
+      if (categorias.length > 0) {
+        this.displayedColumns = Object.keys(categorias[0]);
 
         this.displayedColumns.push('acciones');
 
@@ -54,12 +54,11 @@ export class Usuariodatatable implements AfterViewInit {
     }
   }
 
-  editarUsuario(usuario: Usuario) {
-    console.log("editar usuario: "+usuario.nombreUsuario);
+  editarCategoria(categoria: Categoria) {
+    console.log("editar usuario: "+categoria.nombre);
   }
   
-  borrarUsuario(usuario: Usuario) {
-    console.log("borrar usuario: "+usuario.nombreUsuario);
+  borrarCategoria(categoria: Categoria) {
+    console.log("borrar usuario: "+categoria.nombre);
   }
 }
-
