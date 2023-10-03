@@ -16,12 +16,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { DetallecarritoComponent } from './Components/detallecarrito/detallecarrito.component';
 import { MatTableModule } from '@angular/material/table';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     CarritoComponent,
-    DetallecarritoComponent
+    DetallecarritoComponent,
+
   ],
   imports: [
     CommonModule,
