@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Usuario } from '../Models/usuario.interface';
+import { Carrito } from '../Models/carrito.interface';
 import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable({
@@ -48,6 +49,7 @@ export class RestService {
       console.log("error on request: "+error);
     }
   }
+  
   public async getCarritoFromRemote(){
     try {
       await this.api.get("https://localhost:7200/api/Carrito").toPromise().then((res)=>{
@@ -57,7 +59,7 @@ export class RestService {
       console.log("error on request: "+error);
     }
   }
-  
+
   getUsuarioFromRemote(): Observable<Usuario[]> {
     return this.api.get<Usuario[]>("https://localhost:7200/api/Usuarios").pipe(
       catchError((error: any) => {
