@@ -15,8 +15,6 @@ import { CarritoComponent } from './Components/carrito/carrito.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DetallecarritoComponent } from './Components/detallecarrito/detallecarrito.component';
 import { MatTableModule } from '@angular/material/table';
-//import { Detallecarritodatatable } from './Components/detallecarritodatatable/detallecarritodatatable.component';
-
 
 @NgModule({
   declarations: [
@@ -24,7 +22,6 @@ import { MatTableModule } from '@angular/material/table';
     MenuComponent,
     CarritoComponent,
     DetallecarritoComponent,
-    //Detallecarritodatatable,
   ],
   imports: [
     CommonModule,
