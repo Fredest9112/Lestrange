@@ -1,0 +1,27 @@
+<h2>{{ data.nombre }}</h2>
+<form [formGroup]="zapatoForm">
+    <mat-form-field>
+        <input matInput placeholder="ID" formControlName="id">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Nombre" formControlName="nombre">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Descripción" formControlName="descripcion">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Precio" formControlName="precio">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Imagen" formControlName="imagenUrl">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Stock" formControlName="stock">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Categoria ID" formControlName="categoriaId">
+    </mat-form-field>
+    <!-- Add more form fields as needed -->
+</form>
+<button mat-raised-button color="primary" (click)="onSave()">Save</button>
+<button mat-button mat-dialog-close (click)="onCancel()">Cancel</button>

@@ -8,6 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { Zapato } from 'src/app/Models/zapato.interface';
 import { ZapatoRestService } from 'src/app/Services/rest.zapatoservice';
+import { MatDialog } from '@angular/material/dialog';
+import { ZapatoformComponent } from 'src/app/Forms/zapatoform/zapatoform.component';
 
 @Component({
   selector: 'app-zapatodatatable',
@@ -18,28 +20,25 @@ import { ZapatoRestService } from 'src/app/Services/rest.zapatoservice';
 })
 export class Zapatodatatable implements AfterViewInit {
   dataSource: MatTableDataSource<Zapato> = new MatTableDataSource<Zapato>([]);
-  displayedColumns: string[] = []; // Initialize as an empty array
+  displayedColumns: string[] = [];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public restService: ZapatoRestService) {}
+  constructor(public restService: ZapatoRestService, private dialog: MatDialog) {}
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
 
-    // Fetch data and then assign it to the data source
     this.restService.getZapatosFromRemote().subscribe((zapatos: Zapato[]) => {
       this.dataSource.data = zapatos;
 
-      // Populate displayedColumns based on the properties of the first user (assuming all users have the same properties)
       if (zapatos.length > 0) {
         this.displayedColumns = Object.keys(zapatos[0]);
 
         this.displayedColumns.push('acciones');
 
-        // Bind the sort to the table dynamically
         this.dataSource.sort = this.sort;
       }
     });
@@ -55,10 +54,24 @@ export class Zapatodatatable implements AfterViewInit {
   }
 
   editarZapato(zapato: Zapato) {
-    console.log("editar zapato: "+zapato.descripcion);
+    this.editZapatoModal("Editar zapato", ZapatoformComponent, zapato);
   }
   
   borrarZapato(zapato: Zapato) {
     console.log("borrar zapato: "+zapato.descripcion);
+  }
+
+  editZapatoModal(title: string, zapatoForm: any, zapato: Zapato) {
+    this.dialog.open(zapatoForm, {
+      data: {
+        id: zapato.id,
+        nombre: zapato.nombre,
+        descripcion: zapato.descripcion,
+        precio: zapato.precio,
+        imagenUrl: zapato.imagenUrl,
+        stock: zapato.stock,
+        categoriaId: zapato.categoriaId
+      }
+    });
   }
 }
