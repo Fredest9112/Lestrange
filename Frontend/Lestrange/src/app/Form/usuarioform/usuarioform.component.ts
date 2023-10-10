@@ -21,6 +21,7 @@ export class UsuarioformComponent {
 */
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuarioform',
@@ -41,10 +42,14 @@ export class UsuarioformComponent {
     });
   }
 
-  onSubmit() {
+  onSubmit():void {
     if (this.formulario.valid) {
-      // Procesar el formulario aquí
-      console.log(this.formulario.value);
+      Swal.fire(
+        'Good Job',
+        'you clicked the button',
+        'success'
+      )
+
     }
   }
 }

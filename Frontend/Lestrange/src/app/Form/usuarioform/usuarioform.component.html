@@ -1,4 +1,3 @@
-
 <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card">
     <mat-card-header>
@@ -11,6 +10,9 @@
       <mat-form-field fxFlex>
         <mat-label>ID</mat-label>
         <input matInput type="Id" formControlName="id">
+        <mat-error *ngIf="formulario.get('id').hasError('required')">
+          ID es requerido
+        </mat-error>
       </mat-form-field>
     </div>
   </div>
@@ -20,6 +22,9 @@
       <mat-form-field fxFlex>
         <mat-label>Nombre de Usuario</mat-label>
         <input matInput formControlName="nombreUsuario">
+        <mat-error *ngIf="formulario.get('nombreUsuario').hasError('required')">
+          Nombre es requerido
+        </mat-error>
       </mat-form-field>  
     </div>
   </div>
@@ -28,39 +33,49 @@
     <div class="col">
       <mat-form-field fxFlex>
         <mat-label>Correo</mat-label>
-        <input matInput type="pat@example.com" formControlName="correo" required>
+        <input matInput type="email" formControlName="correo" required>
+        <mat-error *ngIf="formulario.get('correo').hasError('required')">
+          Correo es requerido
+        </mat-error>
+        <mat-error *ngIf="formulario.get('correo').hasError('email')">
+          Invalid email format
+        </mat-error>
       </mat-form-field>    
     </div>
   </div>
-<div class="row">
-  <div class="col">
-    <mat-form-field fxFlex>
-      <mat-label>Contraseña</mat-label>
-      <input matInput type="password" formControlName="contrasena">
-    </mat-form-field>
+  
+  <div class="row">
+    <div class="col">
+      <mat-form-field fxFlex>
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" formControlName="contrasena">
+        <mat-error *ngIf="formulario.get('contrasena').hasError('required')">
+          Contraseña es requerido
+        </mat-error>
+      </mat-form-field>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col">
-    <mat-form-field fxFlex>
-      <mat-label>Dirección de Envío</mat-label>
-      <input matInput formControlName="direccionEnvio">
-    </mat-form-field>
+  <div class="row">
+    <div class="col">
+      <mat-form-field fxFlex>
+        <mat-label>Dirección de Envío</mat-label>
+        <input matInput formControlName="direccionEnvio">
+      </mat-form-field>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col">
-    <mat-form-field fxFlex>
-      <mat-label>Fecha de Registro</mat-label>
-      <input matInput type="date" formControlName="fechaRegistro">
-    </mat-form-field>  
+  <div class="row">
+    <div class="col">
+      <mat-form-field fxFlex>
+        <mat-label>Fecha de Registro</mat-label>
+        <input matInput type="date" formControlName="fechaRegistro">
+      </mat-form-field>  
+    </div>
   </div>
-</div>
 
-<button type="submit" mat-raised-button color="primary" fxFlex>Enviar</button>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" type="submit">Enviar</button>
+  </mat-card-actions>
 
 </form>
-
-
