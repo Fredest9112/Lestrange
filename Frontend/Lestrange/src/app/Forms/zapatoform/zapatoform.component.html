@@ -3,25 +3,39 @@
     <mat-form-field>
         <input matInput placeholder="ID" formControlName="id">
     </mat-form-field>
+    <mat-error *ngIf="zapatoForm.get('id').hasError('required')">ID is required</mat-error>
+
     <mat-form-field>
         <input matInput placeholder="Nombre" formControlName="nombre">
     </mat-form-field>
+    <mat-error *ngIf="zapatoForm.get('nombre').hasError('required')">Nombre is required</mat-error>
+
     <mat-form-field>
         <input matInput placeholder="Descripción" formControlName="descripcion">
     </mat-form-field>
+    <mat-error *ngIf="zapatoForm.get('descripcion').hasError('required')">Descripción is required</mat-error>
+
     <mat-form-field>
         <input matInput placeholder="Precio" formControlName="precio">
     </mat-form-field>
+    <mat-error *ngIf="zapatoForm.get('precio').hasError('required')">Precio is required</mat-error>
+
     <mat-form-field>
         <input matInput placeholder="Imagen" formControlName="imagenUrl">
     </mat-form-field>
+    <mat-error *ngIf="zapatoForm.get('imagenUrl').hasError('required')">Imagen is required</mat-error>
+
     <mat-form-field>
         <input matInput placeholder="Stock" formControlName="stock">
     </mat-form-field>
+    <mat-error *ngIf="zapatoForm.get('stock').hasError('required')">Stock is required</mat-error>
+
     <mat-form-field>
         <input matInput placeholder="Categoria ID" formControlName="categoriaId">
     </mat-form-field>
-    <!-- Add more form fields as needed -->
+    <mat-error *ngIf="zapatoForm.get('categoriaId').hasError('required')">Categoria ID is required</mat-error>
+
+    <!-- Add more form fields and mat-error tags as needed -->
 </form>
 <button mat-raised-button color="primary" (click)="onSave()">Save</button>
 <button mat-button mat-dialog-close (click)="onCancel()">Cancel</button>

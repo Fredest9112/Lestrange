@@ -5,13 +5,15 @@ import { ZapatoRestService } from 'src/app/Services/rest.zapatoservice';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Zapato } from 'src/app/Models/zapato.interface';
 import { MatInputModule } from '@angular/material/input';
+import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-zapatoform',
   templateUrl: './zapatoform.component.html',
   styleUrls: ['./zapatoform.component.css'],
   standalone: true,
-  imports: [MatFormFieldModule, ReactiveFormsModule, MatInputModule],
+  imports: [MatFormFieldModule, ReactiveFormsModule, MatInputModule, CommonModule],
 })
 export class ZapatoformComponent {
   zapatoForm: FormGroup;
@@ -45,6 +47,11 @@ export class ZapatoformComponent {
           console.error('Error updating Zapato:', error);
         },
       });
+      Swal.fire(
+        'Datos Ingresados Correctame',
+        'you clicked the button',
+        'success'
+      )  
     } else {
       Object.keys(this.zapatoForm.controls).forEach((key) => {
         const control = this.zapatoForm.get(key);
