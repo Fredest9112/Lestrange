@@ -1,0 +1,66 @@
+
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Usuario</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
+  <div class="row">
+    <div class="col">
+      <mat-form-field fxFlex>
+        <mat-label>ID</mat-label>
+        <input matInput type="Id" formControlName="id">
+      </mat-form-field>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col">
+      <mat-form-field fxFlex>
+        <mat-label>Nombre de Usuario</mat-label>
+        <input matInput formControlName="nombreUsuario">
+      </mat-form-field>  
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col">
+      <mat-form-field fxFlex>
+        <mat-label>Correo</mat-label>
+        <input matInput type="pat@example.com" formControlName="correo" required>
+      </mat-form-field>    
+    </div>
+  </div>
+<div class="row">
+  <div class="col">
+    <mat-form-field fxFlex>
+      <mat-label>Contraseña</mat-label>
+      <input matInput type="password" formControlName="contrasena">
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <mat-form-field fxFlex>
+      <mat-label>Dirección de Envío</mat-label>
+      <input matInput formControlName="direccionEnvio">
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <mat-form-field fxFlex>
+      <mat-label>Fecha de Registro</mat-label>
+      <input matInput type="date" formControlName="fechaRegistro">
+    </mat-form-field>  
+  </div>
+</div>
+
+<button type="submit" mat-raised-button color="primary" fxFlex>Enviar</button>
+
+</form>
+
+
