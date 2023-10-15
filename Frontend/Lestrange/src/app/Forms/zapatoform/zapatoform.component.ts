@@ -17,6 +17,7 @@ import Swal from 'sweetalert2';
 })
 export class ZapatoformComponent {
   zapatoForm: FormGroup;
+  isEditMode: boolean = false;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Zapato,
@@ -33,25 +34,33 @@ export class ZapatoformComponent {
       stock: [data.stock, Validators.required],
       categoriaId: [data.categoriaId, Validators.required],
     });
+    this.isEditMode = !!data.id;
   }
 
   onSave() {
     if (this.zapatoForm.valid) {
       this.restService.editZapato(this.zapatoForm.value).subscribe({
         next: (updatedZapato) => {
-          console.log("zapato: "+this.zapatoForm.value)
-          console.log('Zapato updated:', updatedZapato);
-          this.matDialogRef.close();
+          // Fetch all zapatos again after successful update
+          this.restService.getZapatosFromRemote().subscribe((zapatos: Zapato[]) => {
+            this.restService.updateZapatosData(zapatos);
+          });
+          this.matDialogRef.close(updatedZapato);
+          Swal.fire(
+            'Datos Ingresados Correctamente',
+            'Zapato updated successfully!',
+            'success'
+          ); 
         },
         error: (error) => {
           console.error('Error updating Zapato:', error);
+          Swal.fire(
+            'Error',
+            'There was a problem updating the Zapato.',
+            'error'
+          );
         },
       });
-      Swal.fire(
-        'Datos Ingresados Correctame',
-        'you clicked the button',
-        'success'
-      )  
     } else {
       Object.keys(this.zapatoForm.controls).forEach((key) => {
         const control = this.zapatoForm.get(key);
@@ -62,6 +71,44 @@ export class ZapatoformComponent {
     }
   }
 
+  onAdd() {
+    const zapatoToCreate = { ...this.zapatoForm.value };
+    delete zapatoToCreate.id; // remove the ID
+  
+    if (this.zapatoForm.valid) {
+      this.restService.addZapato(zapatoToCreate).subscribe({
+        next: (createdZapato) => {
+          // Fetch all zapatos again after successful addition
+          this.restService.getZapatosFromRemote().subscribe((zapatos: Zapato[]) => {
+            this.restService.updateZapatosData(zapatos);
+          });
+          this.matDialogRef.close(createdZapato);
+          Swal.fire(
+            'Datos Ingresados Correctamente',
+            'Zapato added successfully!',
+            'success'
+          );
+        },
+        error: (error) => {
+          console.error('Error adding Zapato:', error);
+          Swal.fire(
+            'Error',
+            'There was a problem adding the Zapato.',
+            'error'
+          );
+        },
+      });
+    } else {
+      Object.keys(this.zapatoForm.controls).forEach((key) => {
+        const control = this.zapatoForm.get(key);
+        if (control.invalid) {
+          console.log(`Field ${key} has validation errors: `, control.errors);
+        }
+      });
+    }
+  }
+  
+  
   onCancel() {
     this.matDialogRef.close();
   }

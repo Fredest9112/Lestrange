@@ -8,13 +8,13 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
         policy =>
         {
-            policy.WithOrigins("https://localhost:7200", "https://localhost:4200")
-            .AllowAnyHeader()
-            .AllowAnyMethod();
-        }
-        );
-}
-    );
+            // Only allow the Angular app's origin
+            policy.WithOrigins("https://localhost:4200")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials(); // Optional: If you need credentials like cookies or HTTP authentication to be sent.
+        });
+});
 
 // Add services to the container.
 
