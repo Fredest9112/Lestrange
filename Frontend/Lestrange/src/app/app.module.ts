@@ -15,13 +15,17 @@ import { CarritoComponent } from './Components/carrito/carrito.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DetallecarritoComponent } from './Components/detallecarrito/detallecarrito.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     CarritoComponent,
-    DetallecarritoComponent,
+    DetallecarritoComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +39,11 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     MatCardModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

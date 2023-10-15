@@ -1,0 +1,48 @@
+<h2>{{ data.nombre }}</h2>
+
+<form [formGroup]="zapatoForm" style="display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 400px;">
+
+    <!-- Nombre Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Nombre" formControlName="nombre">
+        <mat-error *ngIf="zapatoForm.get('nombre').hasError('required')">Nombre is required</mat-error>
+    </mat-form-field>
+
+    <!-- Descripción Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Descripción" formControlName="descripcion">
+        <mat-error *ngIf="zapatoForm.get('descripcion').hasError('required')">Descripción is required</mat-error>
+    </mat-form-field>
+
+    <!-- Precio Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Precio" formControlName="precio">
+        <mat-error *ngIf="zapatoForm.get('precio').hasError('required')">Precio is required</mat-error>
+    </mat-form-field>
+
+    <!-- Imagen Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Imagen" formControlName="imagenUrl">
+        <mat-error *ngIf="zapatoForm.get('imagenUrl').hasError('required')">Imagen is required</mat-error>
+    </mat-form-field>
+
+    <!-- Stock Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Stock" formControlName="stock">
+        <mat-error *ngIf="zapatoForm.get('stock').hasError('required')">Stock is required</mat-error>
+    </mat-form-field>
+
+    <!-- Categoria ID Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Categoria ID" formControlName="categoriaId">
+        <mat-error *ngIf="zapatoForm.get('categoriaId').hasError('required')">Categoria ID is required</mat-error>
+    </mat-form-field>
+
+    <!-- Buttons -->
+    <div style="display: flex; justify-content: space-between; gap: 10px;">
+        <button *ngIf="!isEditMode" mat-raised-button color="primary" (click)="onAdd()">Add</button>
+        <button *ngIf="isEditMode" mat-raised-button color="primary" (click)="onSave()">Update</button>
+        <button mat-button mat-dialog-close (click)="onCancel()">Cancel</button>
+    </div>
+
+</form>
