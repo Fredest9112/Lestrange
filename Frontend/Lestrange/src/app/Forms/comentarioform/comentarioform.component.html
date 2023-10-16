@@ -1,0 +1,29 @@
+<form [formGroup]="comentarioForm" style="display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 400px;">
+
+    <mat-form-field>
+        <input matInput placeholder="Zapato ID" formControlName="zapatoId">
+        <mat-error *ngIf="comentarioForm.get('zapatoId').hasError('required')">Zapato ID is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Usuario ID" formControlName="usuarioId">
+        <mat-error *ngIf="comentarioForm.get('usuarioId').hasError('required')">Usuario ID is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Texto" formControlName="texto">
+        <mat-error *ngIf="comentarioForm.get('texto').hasError('required')">Texto is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Fecha" formControlName="fecha">
+        <mat-error *ngIf="comentarioForm.get('fecha').hasError('required')">Fecha is required</mat-error>
+    </mat-form-field>
+
+    <div style="display: flex; justify-content: space-between; gap: 10px;">
+        <button *ngIf="!isEditMode" mat-raised-button color="primary" (click)="onAdd()">Add</button>
+        <button *ngIf="isEditMode" mat-raised-button color="primary" (click)="onSave()">Update</button>
+        <button mat-button mat-dialog-close (click)="onCancel()">Cancel</button>
+    </div>
+
+</form>
