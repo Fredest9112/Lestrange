@@ -1,8 +1,16 @@
-<mat-form-field>
+<div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+
+<mat-form-field style="width: 50%;">
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Buscar por:" #input />
   </mat-form-field>
   
+  <!-- Add new item button -->
+  <button mat-raised-button color="primary" (click)="agregarCarrito()" style="margin-bottom: 15px;">
+    <mat-icon>add</mat-icon>
+    Add New Item
+  </button>
+
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
       <!-- Add the "Acciones" column definition to the end of the ngFor loop -->
@@ -13,10 +21,10 @@
   
           <!-- Add buttons in the "Acciones" column -->
           <ng-container *ngIf="column === 'acciones'">
-            <button mat-icon-button color="primary" (click)="editarCarrito(row)">
+            <button mat-icon-button color="primary" (click)="editarCarrito(row)" style="margin-right: 5px;">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button color="warn" (click)="borrarCarrito(row)">
+            <button mat-icon-button color="warn" (click)="borrarCarrito(row)" style="margin-right: 5px;">
               <mat-icon>delete</mat-icon>
             </button>
           </ng-container>
@@ -35,3 +43,4 @@
   
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
   </div>
+</div>

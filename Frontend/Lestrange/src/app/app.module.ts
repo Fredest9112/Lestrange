@@ -13,7 +13,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { CarritoComponent } from './Components/carrito/carrito.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DetallecarritoComponent } from './Components/detallecarrito/detallecarrito.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -24,8 +23,7 @@ import { MatInputModule } from '@angular/material/input';
   declarations: [
     AppComponent,
     MenuComponent,
-    CarritoComponent,
-    DetallecarritoComponent
+    CarritoComponent
   ],
   imports: [
     CommonModule,

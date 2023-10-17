@@ -1,0 +1,43 @@
+<h2>{{ data.id }}</h2>
+
+<form [formGroup]="usuarioForm" style="display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 400px;">
+
+    <!-- nombreUsuario Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="nombreUsuario" formControlName="nombreUsuario">
+        <mat-error *ngIf="usuarioForm.get('nombreUsuario').hasError('required')">nombreUsuario is required</mat-error>
+    </mat-form-field>
+
+    <!-- correo Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="correo" formControlName="correo">
+        <mat-error *ngIf="usuarioForm.get('correo').hasError('required')">correo is required</mat-error>
+    </mat-form-field>
+    
+    <!-- contrasena Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="contrasena" formControlName="contrasena">
+        <mat-error *ngIf="usuarioForm.get('contrasena').hasError('required')">contrasena is required</mat-error>
+    </mat-form-field>
+
+    <!-- direccionEnvio Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="direccionEnvio" formControlName="direccionEnvio">
+        <mat-error *ngIf="usuarioForm.get('direccionEnvio').hasError('required')">direccionEnvio is required</mat-error>
+    </mat-form-field>
+
+    <!-- fechaRegistro Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="fechaRegistro" formControlName="fechaRegistro">
+        <mat-error *ngIf="usuarioForm.get('fechaRegistro').hasError('required')">fechaRegistro is required</mat-error>
+    </mat-form-field>
+
+    <!-- Buttons -->
+    <div style="display: flex; justify-content: space-between; gap: 10px;">
+        <button *ngIf="!isEditMode" mat-raised-button color="primary" (click)="onAdd()">Add</button>
+        <button *ngIf="isEditMode" mat-raised-button color="primary" (click)="onSave()">Update</button>
+        <button mat-button mat-dialog-close (click)="onCancel()">Cancel</button>
+    </div>
+
+</form>
+

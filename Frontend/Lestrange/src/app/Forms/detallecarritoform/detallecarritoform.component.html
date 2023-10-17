@@ -1,0 +1,39 @@
+<h2>{{ data.id }}</h2>
+
+<form [formGroup]="detalleCarritoForm" style="display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 400px;">
+
+
+    <!-- carritoId Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="carritoId" formControlName="carritoId">
+        <mat-error *ngIf="detalleCarritoForm.get('carritoId').hasError('required')">carritoID is required</mat-error>
+    </mat-form-field>
+
+    <!-- zapatoId Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="zapatoId" formControlName="zapatoId">
+        <mat-error *ngIf="detalleCarritoForm.get('zapatoId').hasError('required')">zapatoID is required</mat-error>
+    </mat-form-field>
+    
+    <!-- cantidad Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="cantidad" formControlName="cantidad">
+        <mat-error *ngIf="detalleCarritoForm.get('cantidad').hasError('required')">cantidad is required</mat-error>
+    </mat-form-field>
+
+    <!-- precio Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="precio" formControlName="precio">
+        <mat-error *ngIf="detalleCarritoForm.get('precio').hasError('required')">cantidad is required</mat-error>
+    </mat-form-field>
+
+    <!-- Buttons -->
+    <div style="display: flex; justify-content: space-between; gap: 10px;">
+        <button *ngIf="!isEditMode" mat-raised-button color="primary" (click)="onAdd()">Add</button>
+        <button *ngIf="isEditMode" mat-raised-button color="primary" (click)="onSave()">Update</button>
+        <button mat-button mat-dialog-close (click)="onCancel()">Cancel</button>
+    </div>
+
+</form>
+
+
