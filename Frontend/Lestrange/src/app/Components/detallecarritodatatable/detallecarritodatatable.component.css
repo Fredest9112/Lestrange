@@ -1,0 +1,17 @@
+button {
+    background-color: transparent;
+    color: #868686;
+    border: thin;
+    cursor: pointer;
+}
+button:hover {
+    background-color: transparent;
+    color: #b22d5b;
+    border: thin;
+}
+mat-form-field {
+    border-radius: 30px !important;
+    margin: 0 auto;
+    display: table;
+    width: 50%;
+}
