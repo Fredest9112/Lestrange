@@ -1,4 +1,103 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+    height: 100%; 
+}
+
+body { 
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    border-radius: 30px;
+}
+
+button {
+    background-color: transparent;
+    color: #ffffff;
+    border: thin;
+    cursor: pointer;
+  }
+  #btnEdit:hover {
+    background-color: transparent;
+    color: #46bb44;
+    border: thin;
+  }
+  #btnDelete:hover {
+    background-color: transparent;
+    color: #bb4444;
+    border: thin;
+  }
+  mat-form-field {
+    border-radius: 30px !important;
+    margin: 0 auto;
+    display: table;
+    width: 90%;
+  } 
+  table {
+    border-radius: 30px;
+  }
+
+  .mat-drawer-content {
+    background-color: #1e1f32;
+  }
+  .mat-mdc-table {
+    background-color: #32304000 !important;
+  }
+  .mat-mdc-paginator {
+    background-color: #32304000 !important;
+  }
+  .mat-mdc-table tbody, .mat-mdc-table tfoot, .mat-mdc-table thead, .mat-mdc-cell, .mat-mdc-footer-cell, .mat-mdc-header-row, .mat-mdc-row, .mat-mdc-footer-row, .mat-mdc-table .mat-mdc-header-cell {
+    color: white;
+  }
+  .mat-mdc-paginator-container {
+    color: white;
+  }
+  .mat-mdc-text-field-wrapper, .mdc-text-field ,n.g-tns-c1205077789-2 ,m.dc-text-field--outlined, .mdc-text-field--no-label {
+    color: white;
+  }
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.866) !important;
+}
+mat-toolbar {
+    background-color: #2d2e45 !important;
+}
+.mat-elevation-z8, .mat-mdc-elevation-specific.mat-elevation-z8 {
+    border-radius: 30px !important;
+    padding: 18px;
+    background-color: #2d2e45;
+}
+.ng-pristine .ng-valid .ng-touched {
+    gap: 0 !important;
+}
+h2 {
+    margin: 0 auto;
+    display: table;
+}
+.mat-mdc-dialog-container .mdc-dialog__surface  {
+    background-color: #2d2e45e7 !important;
+    border-radius: 30px !important;
+    width: 400px !important;
+}
+#btnFormCancel {
+color: white;
+font-size: larger;
+font-family: 'Roboto';
+background-color: #b52e24;
+border-radius: 10px;
+padding: 7px;
+margin: 10px 100px 10px 0;
+width: 100px;
+}
+
+.btnFormGreen {
+color: white;
+font-size: larger;
+font-family: 'Roboto';
+background-color: #46bb44;
+border-radius: 10px;
+padding: 7px;
+margin: 10px 0 10px 100px;
+width: 100px;
+}

@@ -1,0 +1,36 @@
+<h2>{{ data.id }}</h2>
+
+<form [formGroup]="detalleOrdenForm" style="display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 400px;">
+
+    <!-- Orden de venta Id Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Orden de venta Id" formControlName="ordenVentaId">
+        <mat-error *ngIf="detalleOrdenForm.get('ordenVentaId').hasError('required')">Orden de venta Id is required</mat-error>
+    </mat-form-field>
+
+    <!-- zapatoId Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Id Zapato" formControlName="zapatoId">
+        <mat-error *ngIf="detalleOrdenForm.get('zapatoId').hasError('required')">zapatoId is required</mat-error>
+    </mat-form-field>
+
+    <!-- cantidad Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Cantidad" formControlName="cantidad">
+        <mat-error *ngIf="detalleOrdenForm.get('cantidad').hasError('required')">Cantidad is required</mat-error>
+    </mat-form-field>
+
+    <!-- precio Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="precio" formControlName="precio">
+        <mat-error *ngIf="detalleOrdenForm.get('precio').hasError('required')">precio de detalleOrden is required</mat-error>
+    </mat-form-field>
+
+    <!-- Buttons -->
+    <div style="display: flex; justify-content: space-between; gap: 10px;">
+        <button *ngIf="!isEditMode" mat-raised-button color="primary" (click)="onAdd()" class="btnFormGreen">Add</button>
+        <button *ngIf="isEditMode" mat-raised-button color="primary" (click)="onSave()" class="btnFormGreen">Update</button>
+        <button mat-button mat-dialog-close (click)="onCancel()" id="btnFormCancel">Cancel</button>
+    </div>
+
+</form>

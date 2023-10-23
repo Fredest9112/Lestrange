@@ -23,7 +23,7 @@ import { MatInputModule } from '@angular/material/input';
   declarations: [
     AppComponent,
     MenuComponent,
-    CarritoComponent
+    CarritoComponent,
   ],
   imports: [
     CommonModule,

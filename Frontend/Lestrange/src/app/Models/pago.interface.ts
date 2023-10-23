@@ -3,5 +3,5 @@ export interface Pago {
     ordenVentaId?: number | null;
     monto?: number | null;
     fecha?: string | null;
-    metodoPago?: string | null;
+    métodoPago?: string | null;
 }

@@ -1,0 +1,36 @@
+<h2>{{ data.id }}</h2>
+
+<form [formGroup]="ordenVentaForm" style="display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 400px;">
+
+    <!-- Usuario Id Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Id Ususario" formControlName="usuarioId">
+        <mat-error *ngIf="ordenVentaForm.get('usuarioId').hasError('required')">Orden de venta Id is required</mat-error>
+    </mat-form-field>
+
+    <!-- Fecha Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Fecha" formControlName="fecha">
+        <mat-error *ngIf="ordenVentaForm.get('fecha').hasError('required')">Fecha is required</mat-error>
+    </mat-form-field>
+
+    <!-- ordenVenta Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Total" formControlName="total">
+        <mat-error *ngIf="ordenVentaForm.get('total').hasError('required')">Metodo de ordenVenta is required</mat-error>
+    </mat-form-field>
+
+    <!-- Estado Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Estado" formControlName="estado">
+        <mat-error *ngIf="ordenVentaForm.get('estado').hasError('required')">Metodo de ordenVenta is required</mat-error>
+    </mat-form-field>
+
+    <!-- Buttons -->
+    <div style="display: flex; justify-content: space-between; gap: 10px;">
+        <button *ngIf="!isEditMode" mat-raised-button color="primary" (click)="onAdd()" class="btnFormGreen">Add</button>
+        <button *ngIf="isEditMode" mat-raised-button color="primary" (click)="onSave()" class="btnFormGreen">Update</button>
+        <button mat-button mat-dialog-close (click)="onCancel()" id="btnFormCancel">Cancel</button>
+    </div>
+
+</form>

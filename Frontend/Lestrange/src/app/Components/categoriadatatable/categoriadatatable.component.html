@@ -17,10 +17,10 @@
           {{ row[column] }}
 
           <ng-container *ngIf="column === 'acciones'">
-            <button mat-icon-button color="primary" (click)="editarCategoria(row)" style="margin-right: 5px;">
+            <button id="btnEdit" mat-icon-button color="primary" (click)="editarCategoria(row)" style="margin-right: 5px;">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button color="warn" (click)="borrarCategoria(row)" style="margin-left: 5px;">
+            <button id="btnDelete" mat-icon-button color="warn" (click)="borrarCategoria(row)" style="margin-left: 5px;">
               <mat-icon>delete</mat-icon>
             </button>
           </ng-container>
