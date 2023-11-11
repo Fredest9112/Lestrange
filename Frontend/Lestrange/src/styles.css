@@ -101,3 +101,17 @@ padding: 7px;
 margin: 10px 0 10px 100px;
 width: 100px;
 }
+
+.cdk-overlay-pane {
+  height: 70%;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface::-webkit-scrollbar {
+  width: 7px !important;
+  background-color: #ffffff00 !important;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface::-webkit-scrollbar-thumb {
+  background-color: #1f1f2d !important;
+  border-radius: 10px !important;
+}
