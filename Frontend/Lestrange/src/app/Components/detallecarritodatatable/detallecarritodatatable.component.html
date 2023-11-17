@@ -21,10 +21,10 @@
     
             <!-- Add buttons in the "Acciones" column -->
             <ng-container *ngIf="column === 'acciones'">
-              <button mat-icon-button color="primary" (click)="editarDetalleCarrito(row)" style="margin-right: 5px;">
+              <button id="btnEdit"mat-icon-button color="primary" (click)="editarDetalleCarrito(row)" style="margin-right: 5px;">
                 <mat-icon>edit</mat-icon>
               </button>
-              <button mat-icon-button color="warn" (click)="borrarDetalleCarrito(row)" style="margin-right: 5px;">
+              <button id="btnDelete" mat-icon-button color="warn" (click)="borrarDetalleCarrito(row)" style="margin-right: 5px;">
                 <mat-icon>delete</mat-icon>
               </button>
             </ng-container>

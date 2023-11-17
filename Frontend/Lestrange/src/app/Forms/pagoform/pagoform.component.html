@@ -1,0 +1,36 @@
+<h2>{{ data.id }}</h2>
+
+<form [formGroup]="pagoForm" style="display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 400px;">
+
+    <!-- Orden de venta Id Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Orden de venta Id" formControlName="ordenVentaId">
+        <mat-error *ngIf="pagoForm.get('ordenVentaId').hasError('required')">Orden de venta Id is required</mat-error>
+    </mat-form-field>
+
+    <!-- Monto Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Precio" formControlName="monto">
+        <mat-error *ngIf="pagoForm.get('monto').hasError('required')">Monto is required</mat-error>
+    </mat-form-field>
+
+    <!-- Fecha Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Fecha" formControlName="fecha">
+        <mat-error *ngIf="pagoForm.get('fecha').hasError('required')">Fecha is required</mat-error>
+    </mat-form-field>
+
+    <!-- Metodo de pago Input Field -->
+    <mat-form-field>
+        <input matInput placeholder="Metodo de Pago" formControlName="métodoPago">
+        <mat-error *ngIf="pagoForm.get('métodoPago').hasError('required')">Metodo de pago is required</mat-error>
+    </mat-form-field>
+
+    <!-- Buttons -->
+    <div style="display: flex; justify-content: space-between; gap: 10px;">
+        <button *ngIf="!isEditMode" mat-raised-button color="primary" (click)="onAdd()" class="btnFormGreen">Add</button>
+        <button *ngIf="isEditMode" mat-raised-button color="primary" (click)="onSave()" class="btnFormGreen">Update</button>
+        <button mat-button mat-dialog-close (click)="onCancel()" id="btnFormCancel">Cancel</button>
+    </div>
+
+</form>
