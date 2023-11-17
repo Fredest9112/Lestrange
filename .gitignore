@@ -15,6 +15,10 @@
 # Built Visual Studio Code Extensions
 *.vsix
 
+# Custom additions for ignoring service dependencies in a specific path
+Backend/Lestrange/Lestrange/Properties/serviceDependencies.local.json
+Backend/Lestrange/Lestrange/Properties/serviceDependencies.json
+
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
