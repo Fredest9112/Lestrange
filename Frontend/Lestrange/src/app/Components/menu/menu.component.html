@@ -5,15 +5,15 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="/Zapato">Zapato</a>
-      <a mat-list-item href="/Categorias">Categorias</a>
-      <a mat-list-item href="/Comentarios">Comentarios</a>
-      <a mat-list-item href="/Usuario">Usuario</a>
-      <a mat-list-item href="/Carrito">Carrito</a>
-      <a mat-list-item href="/Detallecarrito">Detallecarrito</a>
-      <a mat-list-item href="/DetalleOrden">Detalle de la orden</a>
-      <a mat-list-item href="/OrdenVenta">Orden de venta</a>
-      <a mat-list-item href="/Pago">Pago</a>
+      <a mat-list-item routerLink="/menu/Zapato">Zapato</a>
+      <a mat-list-item routerLink="/menu/Categorias">Categorias</a>
+      <a mat-list-item routerLink="/menu/Comentarios">Comentarios</a>
+      <a mat-list-item routerLink="/menu/Usuario">Usuario</a>
+      <a mat-list-item routerLink="/menu/Carrito">Carrito</a>
+      <a mat-list-item routerLink="/menu/Detallecarrito">Detallecarrito</a>
+      <a mat-list-item routerLink="/menu/DetalleOrden">Detalle de la orden</a>
+      <a mat-list-item routerLink="/menu/OrdenVenta">Orden de venta</a>
+      <a mat-list-item routerLink="/menu/Pago">Pago</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -27,7 +27,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Lestrange</span>
-      <span class="spacer"></span> <!-- This will push the avatar to the right -->
+      <span class="spacer"></span>
       <div class="avatar-container">
         <div class="avatar">
           <ng-container *ngIf="userName; else noUser">
@@ -37,7 +37,6 @@
         </div>
       </div>
     </mat-toolbar>
-    <!-- Add Content Here -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

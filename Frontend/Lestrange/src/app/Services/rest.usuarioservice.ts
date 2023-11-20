@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Usuario } from '../Models/usuario.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioserviceService {
+export class UsuarioService {
 
   private usuariosDataSubject = new BehaviorSubject<Usuario[]>([]);
   usuariosData$ = this.usuariosDataSubject.asObservable();
@@ -58,9 +58,24 @@ export class UsuarioserviceService {
     );
   }
   
-  // Nuevo método para actualizar datos de Usuario
   updateUsuariosData(usuarios: Usuario[]) {
     this.usuariosDataSubject.next(usuarios);
   }
 
+  loginUser(username: string, password: string): Observable<Usuario | null> {
+    return this.getUsuarioFromRemote().pipe(
+      map(users => {
+        const foundUser = users.find(user => user.nombreUsuario === username && user.contrasena === password);
+        if (!foundUser) {
+          throw new Error('Invalid username or password');
+        }
+        return foundUser;
+      }),
+      catchError((error: any) => {
+        console.error('Login failed:', error);
+        return throwError(error);
+      })
+    );
+  }
+  
 }

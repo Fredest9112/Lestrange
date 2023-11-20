@@ -6,10 +6,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { Usuario } from 'src/app/Models/usuario.interface';
-//import { RestService } from 'src/app/Services/rest.service';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
-import { UsuarioserviceService } from 'src/app/Services/usuarioservice.service';
+import { UsuarioService } from 'src/app/Services/rest.usuarioservice';
 import Swal from 'sweetalert2';
 import { UsuarioformComponent } from 'src/app/Forms/usuarioform/usuarioform.component';
 
@@ -27,7 +26,7 @@ export class Usuariodatatable implements AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public restService: UsuarioserviceService, private dialog: MatDialog, private cdRef: ChangeDetectorRef) {}
+  constructor(public restService: UsuarioService, private dialog: MatDialog, private cdRef: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;

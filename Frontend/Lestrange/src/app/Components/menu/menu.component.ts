@@ -17,7 +17,7 @@ export class MenuComponent {
       shareReplay()
     );
 
-  userName: string = 'Mario Garzon'; // Replace with actual user data
+  userName: string = 'Mario Garzon';
 
   get initials(): string {
     return this.userName.split(' ').map(n => n[0]).join('').toUpperCase();

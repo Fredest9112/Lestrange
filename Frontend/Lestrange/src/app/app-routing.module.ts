@@ -9,17 +9,27 @@ import { Comentariodatatable } from './Components/comentariodatatable/comentario
 import { Ordenventadatatable } from './Components/ordenventadatatable/ordenventadatatable.component';
 import { Detalleordendatatable } from './Components/detalleordendatatable/detalleordendatatable.component';
 import { Pagodatatable } from './Components/pagodatatable/pagodatatable.component';
+import { LoginComponent } from './Components/login/login.component';
+import { MenuComponent } from './Components/menu/menu.component';
 
 const routes: Routes = [
-  {path:"Carrito", component:Carritodatatable},
-  {path:"Zapato", component:Zapatodatatable},
-  {path:"Categorias", component:Categoriadatatable},
-  {path:"Comentarios", component:Comentariodatatable},
-  {path:"Usuario", component:Usuariodatatable},
-  {path:"OrdenVenta", component:Ordenventadatatable},
-  {path:"DetalleOrden", component:Detalleordendatatable},
-  {path:"Pago", component:Pagodatatable},
-  {path:"Detallecarrito",component:Detallecarritodatatable}
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'menu', 
+    component: MenuComponent,
+    children: [
+      { path: 'Carrito', component: Carritodatatable },
+      { path: 'Zapato', component: Zapatodatatable },
+      { path: 'Categorias', component: Categoriadatatable },
+      { path: 'Comentarios', component: Comentariodatatable },
+      { path: 'Usuario', component: Usuariodatatable },
+      { path: 'OrdenVenta', component: Ordenventadatatable },
+      { path: 'DetalleOrden', component: Detalleordendatatable },
+      { path: 'Pago', component: Pagodatatable },
+      { path: 'Detallecarrito', component: Detallecarritodatatable },
+    ]
+  }
 ];
 
 @NgModule({
