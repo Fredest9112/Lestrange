@@ -1,6 +1,7 @@
 <mat-card>
     <mat-card-header>
-      <mat-card-title>Login</mat-card-title>
+      <mat-card-title></mat-card-title>
+      <h2>LOGIN</h2>
     </mat-card-header>
     <mat-card-content>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -18,7 +19,7 @@
           <mat-error *ngIf="password.errors?.['required'] && password.touched">
           </mat-error>
         </mat-form-field>
-        <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+        <button id="buttonLogin" mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
       </form>
     </mat-card-content>
   </mat-card>

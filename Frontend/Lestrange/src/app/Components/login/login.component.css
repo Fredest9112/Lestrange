@@ -1,0 +1,39 @@
+body {
+    background-color: #1e1f31;
+}
+
+h2 {
+    padding: 0 0 20px 0;
+}
+mmat-card {
+    margin: 0 auto !important;
+    
+}
+
+form {
+    width: 500px !important;
+    margin: 0 auto !important;
+    padding: 0 0px 0 60px;
+    background-color: #2d2e45e7;
+    border-radius: 30px;
+}
+
+#buttonLogin{
+    margin: 0 0px 20px 200px !important;
+    background-color: #2d6ab8;
+    color: white;
+}
+
+.mat-mdc-card {
+    background-color: #1e1f31;
+    color: white;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    margin-top: 20px;
+    background-color: #ffffff52 !important;
+}
+
+input[_ngcontent-ng-c1933625466] {
+    background-color: rgba(255, 255, 255, 0) !important;
+}
