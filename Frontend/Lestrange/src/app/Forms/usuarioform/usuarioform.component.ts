@@ -5,7 +5,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Usuario } from 'src/app/Models/usuario.interface';
-import { UsuarioserviceService } from 'src/app/Services/usuarioservice.service';
+import { UsuarioService } from 'src/app/Services/rest.usuarioservice';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -24,7 +24,7 @@ export class UsuarioformComponent {
     @Inject(MAT_DIALOG_DATA) public data: Usuario,
     private matDialogRef: MatDialogRef<UsuarioformComponent>,
     private formBuilder: FormBuilder,
-    public restService: UsuarioserviceService
+    public restService: UsuarioService
   ){
     this.usuarioForm = this.formBuilder.group({
       id: [data.id],
